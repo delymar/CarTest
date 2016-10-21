@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>app</title>
+    <link rel="stylesheet" href="/vendor.css" type="text/css">
+    <link rel="stylesheet" href="/app.css" type="text/css">
+    <base href="/">
+</head>
+
+<body ng-app="app">
+    <main>
+        <!--ENCABEZADO DE LA PAGINA-->
+        <header-directive></header-directive>
+        <!--CONTENIDO DE LA PAGINA-->
+        <span us-spinner spinner-key="spinner-1"></span>
+        <hr class="hr-body">
+        <div ui-view="main" class="mainContainer">
+        </div>
+        <!--PIE DE LA PAGINA-->
+        <footer-directive></footer-directive>
+    </main>
+    <script src="vendor.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
