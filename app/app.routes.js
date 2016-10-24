@@ -8,7 +8,7 @@
 
         $stateProvider
             .state('dashboard', {
-                url: '/dashboard',
+                url: '/',
                 views: {
                     "main": {
                         controller: 'dashboardController',
@@ -16,7 +16,7 @@
                         templateUrl: 'app/dashboard/dashboard.html'
                     }
                 }
-            });
+            })
 
         $urlRouterProvider.otherwise('/dashboard');
     }

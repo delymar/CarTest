@@ -1,0 +1,95 @@
+footer{
+  background-color: @color-background;
+  height: auto;
+  min-height: 100px;
+  padding-top: 40px;
+  font-size: 14px;
+  .container-fluid{
+    padding: 0px;
+    margin: 0px;
+    .info-footer{
+      padding: 0px;
+      margin: 0px;
+      .img-responsive{
+        margin: 10px  0px 0px 35px;
+        width: 60%;
+      }
+      .sendgrid-subscription-widget label>span {
+        display: none;
+        font-weight: 700;
+      }
+      .sendgrid-subscription-widget {
+        label{
+          display: inline;
+        }
+        label>input {
+          font-weight: 700;
+          height:34px;
+          width: 60%;
+          border-radius: 5px 0 0 5px;
+          border-color: transparent ;
+          background-color: white;
+        }
+        input {
+          font-weight: 700;
+          height:34px;
+          background-color: @red;
+          color: white;
+          border-top: 2px;
+          border-radius: 0 5px 5px 0;
+          border-color: transparent ;
+        }
+      }
+      p, a{
+        color: white;
+        font-weight: 400;
+      }
+      h4{
+        color: white;
+        letter-spacing: 3px;
+      }
+      ul{
+        list-style: none;
+        color: white;
+        padding: 0px;
+        cursor: pointer;
+      }
+      .social-media a{
+        color: @color-lertr;
+        padding-right: 20px;
+        &:hover {
+          text-decoration: none;
+          color: @color-lertr;
+        }
+      }
+    }
+
+  }
+  .copyright{
+    margin-top: 5%;
+    p{
+      background-color: @red;
+      margin-bottom:0;
+      padding: 5px 0;
+      color: white;
+    }
+  }
+  @media (max-width: 425px){
+    padding-top: 10px;
+    text-align: center;
+    line-height: 15px;
+    .sendgrid-subscription-widget {
+      label>input {
+        height:34px;
+      }
+      input {
+        margin-top: 1px;
+      }
+    }
+  }
+  @media (max-width: 325px ){
+    padding-top: 10px;
+    text-align: center;
+    line-height: 15px;
+  }
+}

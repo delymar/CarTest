@@ -10,6 +10,8 @@
             'ngMessages',
             'toastr',
             'simplePagination',
-            'angularSpinner'
+            'angularSpinner',
+            'ui.select',
+            'ui.bootstrap'
         ]);
 })();

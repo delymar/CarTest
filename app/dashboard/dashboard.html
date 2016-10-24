@@ -1,6 +1,152 @@
+<main class="landing">
+    <section id="home" class="home">
+        <div class="container-fluid ">
+            <div class="row box-home">
+                <div class="col-xs-12">
+                    <h3 class="text-center text-uppercase title">Aqui encontraras <strong><h3 class="all">todo</h3>
+                    </strong> lo
+                        que necesites
+                    </h3>
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-default dropdown-toggle"
+                                                    placeholder="Categoria" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">Categoria <span
+                                                    class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" ng-repeat="cat in vm.objeto.categories"
+                                                       ng-click="vm.findByCategory(cat.categori_id)">{{cat.name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div><!-- /btn-group -->
+                                        <input type="text" class="form-control input-busq" ng-model="vm.search.name"
+                                               placeholder="¿Qué estas buscando?">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
 
-<main>
-    <section class="main" id="main">
+                    <div class="row text-center">
+                        <span class="glyphicon glyphicon-menu-down"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </section>
+    <section id="products" class="products">
+        <div class="container-fluid">
+            <div class="row barra-filter">
+                <div class="col-xs-12 col-sm-1 title-filter">
+                    <p>Filtrar por:</p>
+                </div>
+                <div class="col-xs-12 col-sm-1 text-center filter">
+                    <button class=" text-capitalize apFiltro" ng-click="vm.filterGreaterThan()" id="filterGreaterThan">Mayor que 30,000
+                    </button>
+                </div>
+                <div class="col-xs-12 col-sm-1 text-center filter">
+                    <button class=" text-capitalize apFiltro" ng-click="vm.filterSmallerThan()" id="filterSmallerThan">Menor que 10,000
+                    </button>
+                </div>
+                <div class="col-xs-12 col-sm-1 text-center filter">
+                    <button class=" text-capitalize apFiltro" ng-click="vm.filterAvailable()" id="filterAvailable">Disponibles</button>
+                </div>
+                <div class="col-xs-12 col-sm-1 text-center filter">
+                    <button class=" text-capitalize apFiltro" ng-click="vm.filterNoAvailable()" id="filterNoAvailable">No Disponibles</button>
+                </div>
+                <div class="col-xs-12 col-sm-1 filter">
+                    <button class=" text-capitalize apFiltro" ng-click="vm.filterBestSeller()" id="filterBestSeller">Mas Popular</button>
+                </div>
+                <div class="col-xs-12 col-sm-1 filter" ng-repeat="cat in vm.objeto.categories">
+                    <button class="apFiltro" ng-click="vm.findByCategory(cat.categori_id)" id="{{cat.categori_id}}">{{cat.name}}</button>
+                </div>
+                <div class="col-xs-12 col-sm-2 filter">
+                    <button class=" text-capitalize apFiltroReset" ng-click="vm.reset()">Limpiar</button>
+                </div>
+            </div>
+            <div class="row-order">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="">
+                        <div class="col-xs-12 col-sm-3 order">
+                            <button class=" text-capitalize orderButton"  ng-click="vm.OrderByNameDesc()">Ordenar por Nombre
+                                Desc.
+                            </button>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 order">
+                            <button class=" text-capitalize orderButton" ng-click="vm.OrderByNameAsc()">Ordenar por Nombre Asc.
+                            </button>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 order">
+                            <button class=" text-capitalize orderButton" ng-click="vm.OrderByPriceDesc()">Ordenar por Menor
+                                Precio</button>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 order">
+                            <button class=" text-capitalize orderButton" ng-click="vm.OrderByPriceAsc()">Ordenar por Mayor
+                                Precio</button>
+                        </div>
+                        <br><br>
+                    </div>
+
+                </div>
+            </div>
+            <br><br>
+            <div class="product">
+                <div class="col-xs-12 col-sm-4 col-md-3"
+                     ng-repeat="product in vm.objeto.products | filter:vm.search | price:vm.value:vm.comparator | categoryFilter:vm.category | orderBy:vm.campo:vm.orden">
+                    <div class="thumbnail">
+                        <div class="info" ng-click="actions.OpenProductModal(product.id)">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <img class=" img-responsive imge-thumbnail" src="{{product.img}}">
+
+                                <div class="caption">
+                                    <h3 class="text-center text-capitalize">{{product.name}}</h3>
+
+                                    <p class="text-center">{{product.price |currency}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+                                <button type="button " class="btn btn-default add-button"
+                                        ng-click="actions.OpenBagModal(product.id)">Agregar a la Bolsa
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<label>Any: <input ng-model="vm.search.$"></label> <br>
+        <label>Name only <input ng-model="vm.search.name"></label><br> button
+        <button ng-repeat="cat in vm.objeto[0].categories" ng-click="vm.findByCategory(cat.categori_id)">{{cat.name}}
+        </button>
+        <button ng-click="vm.filterGreaterThan()">Mayor que 30,000</button>
+        <button ng-click="vm.filterSmallerThan()">Menor que 10,000</button>
+        <button ng-click="vm.filterAvailable()">Available</button>
+        <button ng-click="vm.filterBestSeller()">Best Seller</button>
+        <button ng-click="vm.reset()">Reset</button>
+        <table id="searchObjResults">
+            <tr>
+                <th>Name</th>
+                <th>Available</th>
+                <th>Best Seller</th>
+                <th>Price</th>
+                <th>Categories</th>
+            </tr>
+            <tr ng-repeat="product in vm.objeto[0].products | filter:vm.search | price:vm.value:vm.comparator | categoryFilter:vm.category">
+                <td>{{product.name}}</td>
+                <td>{{product.available}}</td>
+                <td>{{product.best_seller}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.categories}}</td>
+            </tr>
+        </table>-->
+    </section>
+
 </main>

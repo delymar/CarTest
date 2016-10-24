@@ -54,17 +54,21 @@ var vendorScripts = [
   BaseVendors + 'angular/angular.min.js',
   BaseVendors + 'angular-sanitize/angular-sanitize.min.js',
   BaseVendors + 'angular-cookies/angular-cookies.min.js',
+  BaseVendors + 'angular-ui-select/dist/select.min.js',
+  BaseVendors + 'angular-bootstrap/ui-bootstrap-tpls.min.js',
   BaseVendors + 'angular-ui-router/release/angular-ui-router.min.js',
   BaseVendors + 'bootstrap/dist/js/bootstrap.min.js',
   BaseVendors + 'angular-breadcrumb/dist/angular-breadcrumb.min.js',
-  BaseVendors + 'angular-toastr/dist/angular-toastr.tpls.js',
+  BaseVendors + 'angular-toastr/dist/angular-toastr.min.js',
   BaseVendors + 'angular-animate/angular-animate.js',
   BaseVendors + 'angular-messages/angular-messages.js',
-  BaseVendors + 'ng-simplePagination/simplePagination.js',,
+  BaseVendors + 'ng-simplePagination/simplePagination.js',
   BaseVendors + 'spin.js/spin.min.js',
-  BaseVendors + 'angular-spinner/angular-spinner.min.js'
+  BaseVendors + 'angular-spinner/angular-spinner.min.js',
+  BaseVendors + 'angular-toastr/dist/angular-toastr.tpls.js'
 ];
 var vendorStyles = [
+  BaseVendors + 'angular-bootstrap/ui-bootstrap-csp.css',
   BaseVendors + 'bootstrap/dist/css/bootstrap.min.css',
   BaseVendors + 'font-awesome/css/font-awesome.min.css',
   BaseVendors + 'angular-toastr/dist/angular-toastr.min.css'
@@ -122,6 +126,11 @@ gulp.task('images', function() {
     .pipe(gulp.dest('www/assets/images/'))
 });
 
+// Images
+gulp.task('data', function() {
+  gulp.src('apiData/value.json')
+      .pipe(gulp.dest('www/apiData/'))
+});
 // Fonts
 gulp.task('fonts', function() {
   gulp.src(appFonts)
@@ -158,7 +167,7 @@ gulp.task('templates', function() {
 
 // Default task
 gulp.task('default', function() {
-  gulp.start('scripts', 'vendors', 'views', 'styles', 'images', 'templates','fonts');
+  gulp.start('scripts', 'vendors', 'views', 'styles', 'images', 'templates','fonts', 'data');
 });
 
 
