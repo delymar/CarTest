@@ -10,12 +10,12 @@
     "gulp-concat": "*",
     "gulp-connect": "*",
     "gulp-less": "*",
+    "gulp-livereload": "^3.8.1",
     "gulp-minify-css": "*",
     "gulp-ng-annotate": "*",
     "gulp-notify": "*",
     "gulp-open": "*",
     "gulp-rename": "*",
-    "gulp-sourcemaps": "*",
     "gulp-uglify": "*",
     "gulp-watch": "*",
     "path": "^0.12.7"

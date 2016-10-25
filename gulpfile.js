@@ -11,7 +11,6 @@ var uglify = require('gulp-uglify');
 var notify = require('gulp-notify');
 var annotate = require('gulp-ng-annotate')
 var minifycss = require('gulp-minify-css');
-var sourcemaps = require('gulp-sourcemaps');
 var awspublish = require('gulp-awspublish');
 var parallelize = require("concurrent-transform");
 var livereload = require('gulp-livereload');
