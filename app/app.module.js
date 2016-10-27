@@ -11,7 +11,6 @@
             'toastr',
             'simplePagination',
             'angularSpinner',
-            'ui.select',
             'ui.bootstrap'
         ]);
 })();
